@@ -1,0 +1,20 @@
+[project]
+name = "oc-top"
+version = "0.1.0"
+description = "A fast, interactive terminal dashboard (TUI) for visualizing OpenCode AI token usage and costs."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "textual>=1.0.0",
+]
+
+[project.scripts]
+oc-top = "oc_top.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/oc_top"]
