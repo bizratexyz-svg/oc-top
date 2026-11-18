@@ -1,5 +1,8 @@
 # oc-top
 
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 **A fast, cyberpunk-styled token & cost monitor for AI coding agents.**
 
 Supports **OpenCode**, **Claude Code**, **Codex CLI**, and **Gemini CLI** out of the box — with both an interactive **Terminal Dashboard (TUI)** and a **frameless, transparent, always-on-top Floating HUD Overlay**.
@@ -76,6 +79,51 @@ oc-top [OPTIONS]
 
 - **HUD Overlay**: `1` / `2` / `3` (7d / 30d / All) · `m` (Mini-bar toggle) · `+` / `-` (Opacity) · `r` (Refresh) · `q` / `Esc` (Quit)
 - **TUI**: `1` / `2` / `3` (7d / 30d / All) · `m` / `p` / `s` (Models / Projects / Sessions) · `t` (Transparent toggle) · `r` (Refresh) · `q` (Quit)
+
+---
+
+## Example Output
+
+```bash
+$ uv run oc-top --days 7 --export json
+```
+
+```json
+{
+  "range_days": 7,
+  "active_sources": ["opencode", "claude-code"],
+  "overview": {
+    "total_cost_usd": 14.8235,
+    "total_sessions": 28,
+    "total_tokens": 18420910,
+    "cache_hit_rate_pct": 87.4
+  },
+  "models": [
+    {
+      "model_id": "claude-sonnet-4-20250514",
+      "provider_id": "anthropic",
+      "sessions": 21,
+      "cost_usd": 11.4021,
+      "tokens": 14210500
+    },
+    {
+      "model_id": "gemini-2.5-pro",
+      "provider_id": "google",
+      "sessions": 7,
+      "cost_usd": 3.4214,
+      "tokens": 4210410
+    }
+  ],
+  "projects": [
+    {
+      "name": "oc-top",
+      "sessions": 16,
+      "cost_usd": 9.1502,
+      "tokens": 11804200
+    }
+  ]
+}
+```
 
 ---
 
